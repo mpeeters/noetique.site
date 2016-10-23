@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="noetique.site.Book" meta_type="Dexterity FTI"
+    i18n:domain="noetique" xmlns:i18n="http://namespaces.zope.org/i18n">
+
+    <property name="title" i18n:translate="">Book</property>
+    <property name="schema">noetique.site.contents.IBook</property>
+    <property name="klass">noetique.site.contents.Book</property>
+    <property name="behaviors">
+        <element value="plone.app.content.interfaces.INameFromTitle"/>
+    </property>
+
+    <property name="add_permission">noetique.site.AddBook</property>
+    <property name="global_allow">True</property>
+    <property name="filter_content_types">True</property>
+    <property name="allowed_content_types">
+    </property>
+
+</object>

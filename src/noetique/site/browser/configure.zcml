@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="noetique">
+
+    <browser:jbot
+      directory="overrides"
+      layer="..interfaces.ILayerSpecific"
+      />
+
+    <plone:static
+      type="plone"
+      name="noetique"
+      directory="static"
+      />
+
+</configure>

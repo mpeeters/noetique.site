@@ -1,0 +1,19 @@
+<html metal:use-macro="here/main_template/macros/master"
+      i18n:domain="noetique">
+
+<metal:main fill-slot="main">
+
+    <h1 class="documentFirstHeading">
+            ${context/title}
+    </h1>
+    <p class="documentDescription">
+       ${context/description}
+    </p>
+
+    <div tal:replace="structure view/w/summary/render" />
+
+
+
+</metal:main>
+
+</html>
