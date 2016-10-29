@@ -1,0 +1,9 @@
+<div i18n:domain="noetique" style="min-width: 350px;">
+  <img style="float:left; padding: 0px 10px 10px 0px"
+       tal:attributes="src string: ${context/absolute_url}/@@images/cover/mini" />
+  <h4>
+    <a tal:attributes="href context/absolute_url" class="content-overlay">
+        <span tal:content="context/title">Title</span>
+    </a>
+  </h4>
+</div>

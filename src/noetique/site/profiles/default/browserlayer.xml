@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+  <layer name="noetique.site"
+         interface="noetique.site.interfaces.ILayerSpecific" />
+</layers>
