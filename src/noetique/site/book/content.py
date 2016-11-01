@@ -54,8 +54,8 @@ class IBook(model.Schema):
         title=u"Genre",
         required=False,
     )
-    language = schema.TextLine(
-        title=u"Langue(s)",
+    langue = schema.TextLine(
+        title=u"Langue",
         required=False,
     )
     pages = schema.TextLine(
@@ -88,7 +88,7 @@ class IBook(model.Schema):
     model.fieldset(
         'metadata',
         label=u"Metadata",
-        fields=['isbn', 'publisher', 'year', 'format', 'pages', 'collection', 'kind', 'language', 'audience']
+        fields=['isbn', 'publisher', 'year', 'format', 'pages', 'collection', 'kind', 'langue', 'audience']
     )
 
 
