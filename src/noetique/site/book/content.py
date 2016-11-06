@@ -23,8 +23,16 @@ class IBook(model.Schema):
         required=False,
     )
     description = schema.Text(
-        title=u"Bref descriptif du livre",
+        title=u"Présentation du livre",
         required=True,
+    )
+    audience = schema.TextLine(
+        title=u"Public",
+        required=False,
+    )
+    cover = NamedBlobImage(
+        title=u"Photo de couverture",
+        required=False,
     )
     summary = RichText(
         title=u"Résumé détaillé du livre",
@@ -32,10 +40,6 @@ class IBook(model.Schema):
     )
     foreword = RichText(
         title=u"Préface du livre",
-        required=False,
-    )
-    cover = NamedBlobImage(
-        title=u"Photo de couverture",
         required=False,
     )
     book = NamedBlobFile(
@@ -74,21 +78,17 @@ class IBook(model.Schema):
         title=u"ISBN",
         required=False,
     )
-    audience = schema.TextLine(
-        title=u"Public",
-        required=False,
-    )
 
     # widgets
     directives.widget('description', rows=5)
-    directives.widget('summary', rows=15)
-    directives.widget('foreword', rows=15)
+    directives.widget('summary', rows=10)
+    directives.widget('foreword', rows=10)
 
     # fieldsets
     model.fieldset(
         'metadata',
         label=u"Metadata",
-        fields=['isbn', 'publisher', 'year', 'format', 'pages', 'collection', 'kind', 'langue', 'audience']
+        fields=['isbn', 'publisher', 'year', 'format', 'pages', 'collection', 'kind', 'langue']
     )
 
 

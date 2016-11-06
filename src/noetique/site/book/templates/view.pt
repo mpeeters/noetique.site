@@ -6,11 +6,56 @@
     <h1 class="documentFirstHeading">
             ${context/title}
     </h1>
-    <p class="documentDescription">
+    <img src="${context/absolute_url}/@@images/cover/mini" class="image-left" />
+    <div>
+        <strong>Auteur :</strong> ${context/author}
+        -
+        <strong>Année de publication :</strong> ${context/year}
+    </div>
+    <div>
+        <strong>Editeur :</strong> ${context/publisher}
+        <tal:if tal:condition="context/collection">
+            -
+            <strong>Collection :</strong> ${context/collection}
+        </tal:if>
+        <tal:if tal:condition="context/kind">
+            -
+            <strong>Genre :</strong> ${context/kind}
+        </tal:if>
+    </div>
+    <div>
+        <strong>Langue :</strong> ${context/langue}
+        -
+        <strong>Format :</strong> ${context/format}
+        -
+        <strong>Pages :</strong> ${context/pages}
+    </div>
+    <div tal:condition="context/audience">
+        <strong>Public :</strong> ${context/audience}
+    </div>
+    <div>
+        <strong>ISBN :</strong> ${context/isbn}
+    </div>
+    <div tal:condition="nocall:context/book">
+        <strong>Version gratuite :</strong>
+        <a tal:attributes="href string:${context/absolute_url}/@@download/book/${context/book/filename}">
+            Télécharger
+        </a>
+    </div>
+    <p></p>
+    <p>
        ${context/description}
     </p>
 
-    <div tal:replace="structure view/w/summary/render" />
+    <tal:if tal:condition="context/summary">
+        <h3>Résumé</h3>
+        <div tal:replace="structure view/w/summary/render" />
+    </tal:if>
+
+    <tal:if tal:condition="context/foreword">
+        <h3>Préface</h3>
+        <div tal:replace="structure view/w/foreword/render" />
+    </tal:if>
 
 
 
