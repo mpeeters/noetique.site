@@ -47,7 +47,7 @@ class IBook(model.Schema):
         required=False,
     )
     publisher = schema.TextLine(
-        title=u"Editeur(s)",
+        title=u"Editeur",
         required=False,
     )
     collection = schema.TextLine(

@@ -16,4 +16,13 @@
       directory="static"
       />
 
+    <browser:page
+        name="home_view"
+        for="*"
+        class=".home.HomeView"
+        template="home.pt"
+        permission="zope2.View"
+        layer="..interfaces.ILayerSpecific"
+        />
+
 </configure>
