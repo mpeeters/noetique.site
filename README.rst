@@ -15,5 +15,5 @@ Development
     ./bin/pip install -U setuptools
     ./bin/pip install -U pip
     ./bin/pip install zc.buildout
-    ./bin/buildout -c development
+    ./bin/buildout -c development.cfg
     ./bin/instance fg
