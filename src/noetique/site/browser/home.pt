@@ -58,7 +58,15 @@
 </metal:styleslot>
 <metal:main fill-slot="main">
     <div class="hero">
-        La pluie ne mouille pas les poissons.
+        <h2>"La pluie ne mouille pas les poissons" (M.H.)</h2>
+        <p>
+            Je suis un chercheur pratique. Il me faut comprendre pour pouvoir 
+            bâtir, agir en conséquence, faire les choses avec sens. 
+            J'étudie donc, tout le temps et quel plaisir ! J'expérimente. 
+            Je formalise des méthodes. Et lorsque le bon mot est prêt, 
+            lorsque la bonne formule est au point, lorsque vous êtes prêt 
+            à aller de l'avant, je fais un bout de chemin avec vous ... Marc.
+        </p>
     </div>
     <div id="home-boxes">
         <section id="box-news" class="box" tal:define="news view/last_news" tal:condition="news">
