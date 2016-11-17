@@ -59,7 +59,24 @@ class HomeView(BrowserView):
 
     @property
     def last_thought(self):
-        pass
+        brains = api.content.find(
+            portal_type='Document',
+            path=self.portal_path + '/journal',
+            review_state='published',
+            sort_on='effective',
+            sort_order='reverse',
+            sort_limit=3
+        )
+        if len(brains) < 1:
+            return None
+
+        brain = brains[0]
+        return {
+            'title': brain.Title,
+            'description': brain.Description,
+            'url': brain.getURL(),
+            'effective': brain.effective,
+        }
 
     @property
     def next_events(self):
