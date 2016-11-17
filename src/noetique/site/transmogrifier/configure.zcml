@@ -1,0 +1,74 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <exclude package="transmogrify.dexterity.pipelines" file="configure.zcml" />
+  <include package="transmogrify.dexterity" />
+  <include package="transmogrify.dexterity.pipelines" />
+
+  <adapter
+     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+     provides="Products.GenericSetup.interfaces.IFilesystemImporter"
+     factory="quintagroup.transmogrifier.exportimport.PloneSiteImporter"
+     />
+
+  <utility
+      component=".jsonfile.JSONFixer"
+      name="noetique.site.jsonfixer"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+  <utility
+      component=".dates.DatesCorrector"
+      name="noetique.site.datescorrector"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+  <utility
+      component=".path.PathReducer"
+      name="noetique.site.pathreducer"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+  <utility
+      component=".path.PathExpander"
+      name="noetique.site.pathexpander"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+  <utility
+      component=".event.EventImporter"
+      name="noetique.site.eventimporter"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+  <utility
+      component=".file.FileImporter"
+      name="noetique.site.fileimporter"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+  <utility
+      component=".book.BookTypeChanger"
+      name="noetique.site.booktypechanger"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+  <utility
+      component=".book.BookFieldsManipulator"
+      name="noetique.site.bookfieldsmanipulator"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+  <utility
+      component=".navigation.NavigationExcluder"
+      name="noetique.site.navigationexcluder"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+  <utility
+      component=".references.ReferencesImporter"
+      name="noetique.site.referencesimporter"
+      provides="collective.transmogrifier.interfaces.ISectionBlueprint"
+      />
+
+</configure>

@@ -18,5 +18,6 @@
 
   <include package=".browser"/>
   <include package=".book"/>
+  <include package=".transmogrifier"/>
 
 </configure>
