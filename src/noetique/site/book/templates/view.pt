@@ -47,14 +47,16 @@
        ${context/description}
     </p>
 
-    <tal:if tal:condition="context/summary">
+    <tal:if tal:define="summary view/w/summary/render"
+            tal:condition="summary">
         <h3>Résumé</h3>
-        <div tal:replace="structure view/w/summary/render" />
+        <div tal:replace="structure summary" />
     </tal:if>
 
-    <tal:if tal:condition="context/foreword">
+    <tal:if tal:define="text view/w/foreword/render"
+            tal:condition="text">
         <h3>Préface</h3>
-        <div tal:replace="structure view/w/foreword/render" />
+        <div tal:replace="structure text" />
     </tal:if>
 
 
