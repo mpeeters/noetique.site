@@ -13,7 +13,28 @@ class HomeView(BrowserView):
 
     @property
     def last_articles(self):
-        pass
+        brains = api.content.find(
+            portal_type=('Document', 'File'),
+            path=self.portal_path + '/billets',
+            review_state='published',
+            sort_on='effective',
+            sort_order='reverse',
+            sort_limit=3
+        )
+        if len(brains) < 1:
+            return None
+
+        articles =[]
+        for b in brains[:3]:
+            article = {
+                'title': b.Title,
+                'description': b.Description,
+                'url': b.getURL()+'/view',
+                'effective': b.effective,
+            }
+            articles.append(article)
+        return articles
+
 
     @property
     def last_news(self):

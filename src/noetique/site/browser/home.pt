@@ -1,61 +1,6 @@
 <html metal:use-macro="here/main_template/macros/master"
         i18n:domain="noetique">
 
-<metal:styleslot fill-slot="style_slot">
-    <style>
-        body.template-home_view #portal-breadcrumbs {
-            display: none;
-        }
-        #home-boxes {
-        }
-        #home-boxes .box {
-
-        }
-
-        #home-boxes .box > header {
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 1.5rem 2rem 0.5rem;
-            background-color: #777;
-            color: #FFF;
-
-        }
-
-        #home-boxes .box > section {
-
-        }
-
-        #home-boxes .box > footer {
-            background-color: #AAA;
-            padding: 0.5rem 2rem;
-            text-align: right;
-            clear:both;
-        }
-
-        #home-boxes #box-books > section {
-        }
-        #home-boxes #box-books img {
-            width: 35%;
-            float: right;
-            margin: 0px 0px 0px 1rem
-        }
-        #home-boxes #box-news img {
-            display: block;
-            width: 100%;
-        }
-        @media (max-width: 480px) {
-        }
-        @media (min-width: 481px) {
-            #home-boxes .box {
-                width: 45%;
-                margin: 0px 10px 10px 0px;
-            }
-            #box-news {
-                float: right;
-            }
-        }
-    </style>
-</metal:styleslot>
 <metal:main fill-slot="main">
     <div class="hero">
         <h2>"La pluie ne mouille pas les poissons" (M.H.)</h2>
@@ -69,6 +14,7 @@
         </p>
     </div>
     <div id="home-boxes">
+        <div class="home-boxes-column">
         <section id="box-news" class="box" tal:define="news view/last_news" tal:condition="news">
             <header>
                 A la une
@@ -83,9 +29,28 @@
                 </a>
             </section>
             <footer>
-                <a href="livres">Tous les livres</a>
+                <a href="livres">Toutes les actualités</a>
             </footer>
         </section>
+        <section id="box-articles" class="box" tal:define="articles view/last_articles">
+            <header>
+                Billets
+            </header>
+            <section tal:repeat="article articles">
+                <a href="${article/url}">
+                    <h5>${article/title}</h5>
+                    <p>
+                        ${article/description}<br/>
+                        ${article/effective}
+                    </p>
+                </a>
+            </section>
+            <footer>
+                <a href="livres">Tous les billets</a>
+            </footer>
+        </section>
+        </div>
+        <div class="home-boxes-column">
         <section id="box-video" class="box" tal:define="video view/last_video" tal:condition="video">
             <header>
                 Dernière vidéo
@@ -118,6 +83,7 @@
                 <a href="livres">Tous les livres</a>
             </footer>
         </section>
+        </div>
     </div>
 </metal:main>
 
