@@ -29,7 +29,7 @@
                     </a>
                 </section>
                 <footer>
-                    <a href="livres">Toutes les actualités</a>
+                    <a href="actualités">Toutes les actualités</a>
                 </footer>
             </section>
             <section id="box-thought" class="box" tal:define="thought view/last_thought" tal:condition="thought">
@@ -47,7 +47,7 @@
 
                 </section>
                 <footer>
-                    <a href="livres">Toutes les actualités</a>
+                    <a href="journal">Tout le journal</a>
                 </footer>
             </section>
             <section id="box-articles" class="box" tal:define="articles view/last_articles">
@@ -59,16 +59,35 @@
                         <h5>${article/title}</h5>
                         <p>
                             ${article/description}<br/>
-                            ${article/effective}
+                                <span class="pat-moment" data-pat-moment="format:Do/MM/YYYY;">${article/effective}</span>
+
+
                         </p>
                     </a>
                 </section>
                 <footer>
-                    <a href="livres">Tous les billets</a>
+                    <a href="billets">Tous les billets</a>
                 </footer>
             </section>
         </div>
         <div class="home-boxes-column">
+            <section id="box-articles" class="box" tal:define="events view/next_events">
+                <header>
+                    Agenda
+                </header>
+                <section tal:repeat="event events">
+                    <a href="${event/url}">
+                        <h5>${event/title}</h5>
+                        <p>
+                            ${event/location},
+                            <span class="pat-moment" data-pat-moment="format:Do MMMM YYYY;">${event/start}</span>
+                        </p>
+                    </a>
+                </section>
+                <footer>
+                    <a href="agenda">Tout l'agenda</a>
+                </footer>
+            </section>
             <section id="box-video" class="box" tal:define="video view/last_video" tal:condition="video">
                 <header>
                     Dernière vidéo
@@ -78,7 +97,7 @@
                             tal:attributes="src string:https://www.youtube.com/embed/${video/video_id}" ></iframe>
                 </section>
                 <footer>
-                    <a href="livres">Toutes les vidéos</a>
+                    <a href="videos">Toutes les vidéos</a>
                 </footer>
             </section>
             <section id="box-books" class="box" tal:define="books view/last_books">

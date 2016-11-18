@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from DateTime import DateTime
 from plone import api
 from Products.Five import BrowserView
 
@@ -30,7 +31,7 @@ class HomeView(BrowserView):
                 'title': b.Title,
                 'description': b.Description,
                 'url': b.getURL()+'/view',
-                'effective': b.effective,
+                'effective': b.effective.ISO(),
             }
             articles.append(article)
         return articles
@@ -80,7 +81,26 @@ class HomeView(BrowserView):
 
     @property
     def next_events(self):
-        pass
+        brains = api.content.find(
+            portal_type='Event',
+            path=self.portal_path + '/agenda',
+            review_state='published',
+            end = {'query':[DateTime(),], 'range':'min'},
+            sort_on='start',
+            sort_order='ascending',
+        )
+        events =[]
+        for b in brains[:3]:
+            obj = b.getObject()
+            event = {
+                'title': b.Title,
+                'description': b.Description,
+                'start': b.start,
+                'location': obj.location,
+                'url': b.getURL(),
+            }
+            events.append(event)
+        return events
 
     @property
     def last_books(self):
