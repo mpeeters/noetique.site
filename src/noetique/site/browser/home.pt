@@ -5,16 +5,16 @@
     <div class="hero">
         <h2>"La pluie ne mouille pas les poissons" (M.H.)</h2>
         <p>
-            Je suis un chercheur pratique. Il me faut comprendre pour pouvoir 
-            bâtir, agir en conséquence, faire les choses avec sens. 
-            J'étudie donc, tout le temps et quel plaisir ! J'expérimente. 
-            Je formalise des méthodes. Et lorsque le bon mot est prêt, 
-            lorsque la bonne formule est au point, lorsque vous êtes prêt 
+            Je suis un chercheur pratique. Il me faut comprendre pour pouvoir
+            bâtir, agir en conséquence, faire les choses avec sens.
+            J'étudie donc, tout le temps et quel plaisir ! J'expérimente.
+            Je formalise des méthodes. Et lorsque le bon mot est prêt,
+            lorsque la bonne formule est au point, lorsque vous êtes prêt
             à aller de l'avant, je fais un bout de chemin avec vous ... Marc.
         </p>
     </div>
     <div id="home-boxes">
-        <div class="home-boxes-column">
+        <div class="home-boxes-column-left">
             <section id="box-news" class="box" tal:define="news view/last_news" tal:condition="news">
                 <header>
                     A la une
@@ -70,7 +70,7 @@
                 </footer>
             </section>
         </div>
-        <div class="home-boxes-column">
+        <div class="home-boxes-column-right">
             <section id="box-articles" class="box" tal:define="events view/next_events">
                 <header>
                     Agenda
@@ -93,7 +93,7 @@
                     Dernière vidéo
                 </header>
                 <section>
-                    <iframe width="100%" height="240px" frameborder="0" allowfullscreen
+                    <iframe  frameborder="0" allowfullscreen
                             tal:attributes="src string:https://www.youtube.com/embed/${video/video_id}" ></iframe>
                 </section>
                 <footer>
