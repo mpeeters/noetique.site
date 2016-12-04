@@ -104,7 +104,7 @@
                 <header>
                     En librairie
                 </header>
-                <section tal:repeat="book books">
+                <section tal:repeat="book books" class="box">
                     <a href="${book/url}">
                         <img tal:attributes="src string:${book/url}/@@images/cover/mini" />
                         <h5>${book/title}</h5>
