@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
 
+from DateTime import DateTime
 from collective.transmogrifier.interfaces import ISection
 from collective.transmogrifier.interfaces import ISectionBlueprint
 from collective.transmogrifier.utils import defaultMatcher
 from zope.interface import classProvides
 from zope.interface import implements
+
+
+def is_not_empty(value):
+    if value == 'None':
+        return False
+    return bool(value)
 
 
 class DatesCorrector(object):
@@ -18,16 +25,15 @@ class DatesCorrector(object):
         self.previous = previous
         self.context = transmogrifier.context
         self.pathkey = defaultMatcher(options, 'path-key', name, 'path')
+        self.creationkey = 'creation_date'
+        self.modificationkey = 'modification_date'
+        self.effectivekey = 'effectiveDate'
+        self.expirationkey = 'expirationDate'
 
     def __iter__(self):
         for item in self.previous:
             pathkey = self.pathkey(*item.keys())[0]
             if not pathkey:
-                yield item
-                continue
-
-            date = item.get('modification_date', None)
-            if date is None:
                 yield item
                 continue
 
@@ -37,6 +43,21 @@ class DatesCorrector(object):
                 yield item
                 continue
 
-            obj.modification_date = date
+            creationdate = item.get(self.creationkey, None)
+            if is_not_empty(creationdate) and hasattr(obj, 'creation_date'):
+                obj.creation_date = DateTime(creationdate)
+
+            modificationdate = item.get(self.modificationkey, None)
+            if is_not_empty(modificationdate) and hasattr(obj, 'modification_date'):
+                obj.modification_date = DateTime(modificationdate)
+
+            effectivedate = item.get(self.effectivekey, None)
+            if is_not_empty(effectivedate) and hasattr(obj, 'effective_date'):
+                obj.effective_date = DateTime(effectivedate)
+
+            expirationdate = item.get(self.expirationkey, None)
+            if is_not_empty(expirationdate) and hasattr(obj, 'expiration_date'):
+                obj.expiration_date = DateTime(expirationdate)
+
             obj.indexObject()
             yield item
