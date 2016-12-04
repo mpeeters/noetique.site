@@ -22,7 +22,9 @@
                 <section>
                     <a href="${news/url}">
                         <h4>${news/title}</h4>
-                        <img tal:attributes="src string:${news/url}/@@images/image/mini" />
+                        <tal:if tal:condition="news/has_image">
+                            <img tal:attributes="src string:${news/url}/@@images/image/mini" />
+                        </tal:if>
                         <p>
                            ${news/description}
                         </p>

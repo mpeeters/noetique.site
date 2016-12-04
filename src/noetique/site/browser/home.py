@@ -51,11 +51,13 @@ class HomeView(BrowserView):
             return None
 
         brain = brains[0]
+        obj = brain.getObject()
         return {
             'title': brain.Title,
             'description': brain.Description,
             'url': brain.getURL(),
             'effective': brain.effective,
+            'has_image': True if obj.image else False,
         }
 
     @property
