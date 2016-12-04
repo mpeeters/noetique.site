@@ -105,7 +105,7 @@
             </section>
             <section id="box-books" class="box" tal:define="books view/last_books">
                 <header>
-                    En librairie
+                    Livres
                 </header>
                 <section tal:repeat="book books" class="box">
                     <a href="${book/url}">
