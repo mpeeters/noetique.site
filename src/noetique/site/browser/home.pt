@@ -34,22 +34,22 @@
                     <a href="actualités">Toutes les actualités</a>
                 </footer>
             </section>
-            <section id="box-thought" class="box" tal:define="thought view/last_thought" tal:condition="thought">
+            <section id="box-agenda" class="box" tal:define="events view/next_events">
                 <header>
-                    Pensées
+                    Agenda
                 </header>
-                <section>
-                    <p>
-                        De l'Etre au Devenir<br />
-                        Journal philosophique et spirituel de Marc Halévy
-                    </p>
-                    <p>
-                        <a href="${thought/url}">${thought/title}</a>
-                    </p>
-
+                <section tal:repeat="event events">
+                    <a href="${event/url}">
+                        <h5>${event/title}</h5>
+                        <p>
+                            ${event/location}
+                            <br />
+                            <span class="pat-moment" data-pat-moment="format:Do MMMM YYYY;">${event/start}</span>
+                        </p>
+                    </a>
                 </section>
                 <footer>
-                    <a href="journal">Tout le journal</a>
+                    <a href="agenda">Tout l'agenda</a>
                 </footer>
             </section>
             <section id="box-articles" class="box" tal:define="articles view/last_articles">
@@ -73,22 +73,22 @@
             </section>
         </div>
         <div class="home-boxes-column-right">
-            <section id="box-articles" class="box" tal:define="events view/next_events">
+            <section id="box-thought" class="box" tal:define="thought view/last_thought" tal:condition="thought">
                 <header>
-                    Agenda
+                    Pensées
                 </header>
-                <section tal:repeat="event events">
-                    <a href="${event/url}">
-                        <h5>${event/title}</h5>
-                        <p>
-                            ${event/location}
-                            <br />
-                            <span class="pat-moment" data-pat-moment="format:Do MMMM YYYY;">${event/start}</span>
-                        </p>
-                    </a>
+                <section>
+                    <p>
+                        De l'Etre au Devenir<br />
+                        Journal philosophique et spirituel de Marc Halévy
+                    </p>
+                    <p>
+                        <a href="${thought/url}">${thought/title}</a>
+                    </p>
+
                 </section>
                 <footer>
-                    <a href="agenda">Tout l'agenda</a>
+                    <a href="journal">Tout le journal</a>
                 </footer>
             </section>
             <section id="box-video" class="box" tal:define="video view/last_video" tal:condition="video">
