@@ -96,7 +96,7 @@
                     Dernière vidéo
                 </header>
                 <section>
-                    <iframe  frameborder="0" allowfullscreen
+                    <iframe  frameborder="0" allowfullscreen width="100%"
                             tal:attributes="src string:https://www.youtube.com/embed/${video/video_id}" ></iframe>
                 </section>
                 <footer>
@@ -126,6 +126,10 @@
         </div>
         <div class="stop-float"></div>
     </div>
+    <script type="text/javascript" language="javascript">
+        var box_video_width = $('#box-video').width();
+        $('#box-video iframe').css('height', box_video_width/16.0*9.0);
+    </script>
 </metal:main>
 
 </html>

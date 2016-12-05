@@ -25,4 +25,13 @@
         layer="..interfaces.ILayerSpecific"
         />
 
+    <browser:page
+        name="videos_view"
+        for="*"
+        class=".videos.VideosView"
+        template="videos.pt"
+        permission="zope2.View"
+        layer="..interfaces.ILayerSpecific"
+        />
+
 </configure>

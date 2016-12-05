@@ -1,0 +1,26 @@
+<html metal:use-macro="here/main_template/macros/master"
+        i18n:domain="noetique">
+
+<metal:main fill-slot="content-core">
+    <div id="videos-wrapper">
+    <article class="tileItem" tal:repeat="video view/videos">
+        <h2 class="tileHeadline">
+                ${video/title}
+        </h2>
+
+        <div class="tileBody">
+            <p class="description">
+                    ${video/description}
+            </p>
+            <iframe frameborder="0" allowfullscreen width="100%"
+                    tal:attributes="src string:https://www.youtube.com/embed/${video/video_id}" ></iframe>
+        </div>
+    </article>
+    </div>
+    <script type="text/javascript" language="javascript">
+        var wrapper_width = $('#videos-wrapper').width();
+        $('iframe').css('height', wrapper_width/16.0*9.0);
+    </script>
+</metal:main>
+
+</html>
