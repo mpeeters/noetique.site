@@ -107,7 +107,7 @@
                 <header>
                     Livres
                 </header>
-                <section tal:repeat="book books" class="box">
+                <section tal:repeat="book books">
                     <a href="${book/url}">
                         <img tal:attributes="src string:${book/url}/@@images/cover/mini" />
                         <h5>${book/title}</h5>
