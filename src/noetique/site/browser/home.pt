@@ -31,7 +31,7 @@
                     </a>
                 </section>
                 <footer>
-                    <a href="actualités">Toutes les actualités</a>
+                    <a href="actualites">Toutes les actualités</a>
                 </footer>
             </section>
             <section id="box-agenda" class="box" tal:define="events view/next_events">
