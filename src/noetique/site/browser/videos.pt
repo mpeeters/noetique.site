@@ -1,7 +1,14 @@
 <html metal:use-macro="here/main_template/macros/master"
         i18n:domain="noetique">
 
-<metal:main fill-slot="content-core">
+<metal:main fill-slot="main">
+    <h1 class="documentFirstHeading">Vidéos</h1>
+
+    <div class="documentDescription description">
+        Accéder à d'autres vidéos sur la
+        <a href="https://www.youtube.com/channel/UCplO3-iuNvhEinVj8Sxh6XA">Chaîne youtube de Marc Halévy.</a>
+    </div>
+
     <div id="videos-wrapper">
     <article class="tileItem" tal:repeat="video view/videos">
         <h2 class="tileHeadline">

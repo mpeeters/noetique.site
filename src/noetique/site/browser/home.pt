@@ -79,7 +79,6 @@
                 </header>
                 <section>
                     <p>
-                        De l'Etre au Devenir<br />
                         Journal philosophique et spirituel de Marc Halévy
                     </p>
                     <p>
@@ -100,12 +99,12 @@
                             tal:attributes="src string:https://www.youtube.com/embed/${video/video_id}" ></iframe>
                 </section>
                 <footer>
-                    <a href="videos">Toutes les vidéos</a>
+                    <a href="https://www.youtube.com/channel/UCplO3-iuNvhEinVj8Sxh6XA">Chaîne Youtube de Marc Halévy</a>
                 </footer>
             </section>
             <section id="box-books" class="box" tal:define="books view/last_books">
                 <header>
-                    Livres
+                    En librairie
                 </header>
                 <section tal:repeat="book books">
                     <a href="${book/url}">

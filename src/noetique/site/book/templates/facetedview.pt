@@ -6,8 +6,6 @@
             <figcaption>
                 <h5 tal:content="context/title">Title</h5>
                 <div>
-                    <strong>Auteur :</strong> ${context/author}
-                    -
                     <strong>Année de publication :</strong> ${context/year}
                 </div>
                 <div>
